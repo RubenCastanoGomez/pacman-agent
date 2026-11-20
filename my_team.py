@@ -164,7 +164,9 @@ class OffensiveAgent(BaseAgent):
     brought back to our side).
     """
 
-    CARRY_LIMIT = 6  # food carried before returning home when not in danger
+    # Deposit after a larger haul when the route is safe. Nearby ghosts,
+    # nearly exhausted food and the game clock can still trigger an earlier return.
+    CARRY_LIMIT = 8
 
     def choose_action(self, game_state):
         my_state = game_state.get_agent_state(self.index)
